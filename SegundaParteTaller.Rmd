@@ -1,0 +1,83 @@
+---
+title: "Taller 1, segunda parte"
+author: "Mateo Morera"
+date: "2023-02-06"
+output: html_document
+---
+
+```{r}
+##Objeto
+
+Objeto1 <- seq(200,1000, by= 50)
+
+#Secuencia de los ejemplos
+Objeto1
+```
+
+# R Funciones Basicas
+
+## 1. Maximo y minimo
+
+Las funciones "Maximo y minimo",estas funciones permiten hallar el valor maximo y minimo de
+una secuencia de numeros.
+
+```{r}
+## Valor Maximo
+max(Objeto1)
+
+## Valor Minimo
+min(Objeto1)
+```
+
+## 2. Range
+
+Muestra el valor minimo que inicia un rango y el valor maximo que lo finaliza. 
+
+```{r}
+## Range
+range(Objeto1)
+```
+
+## 3. Mean
+
+Halla la media o el promedio de un vector, sumando y diviendo por el numero de valores en este.
+```{r}
+## Mean
+mean(Objeto1)
+```
+
+## 4. Median
+
+Halla la mediana de un rango o vector, ordenando los factores de menor a mayor y tomando el valot central del rango. 
+```{r}
+## Median
+median(Objeto1)
+```
+
+## 5. Sum
+Suma todos los valores que se encuentran en el vector del objeto.
+
+```{r}
+## Sum
+sum(Objeto1)
+```
+
+## 6. sin(x), cos(x), tan(x)
+Ejecuta las operaciones trigonometicas sobre los angulos sin,cos,tan y los calcula para los valores que se encuentra en el vector.
+
+```{r}
+## sin(x)
+sin(Objeto1)
+## cos(x)
+cos(Objeto1)
+## tan(x)
+tan(Objeto1)
+```
+
+## 7. diff    
+Muestra la diferencia por cada salto en un intervalo en este caso el intervalo aumenta de 50 a 50, entonces su diferencia siempre sera 50.
+
+```{r}
+## diff
+diff(Objeto1)
+```
