@@ -1,0 +1,132 @@
+---
+title: "Taller I - Estadística Descriptiva"
+author: "Universidad EAN"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+```{r , message=FALSE , echo=FALSE}
+# líneas de código para ajustar problemas de acento y 
+# caracteres especiales
+Sys.setlocale("LC_ALL", 'en_US.UTF-8')
+Sys.setenv(LANGUAGE="es")
+```
+<div style="text-align: justify">
+A continuación se presenta un conjunto de situaciones que abordan los temas desarrollados en las últimas clases, debe resolverlas y presentarlas como informe de Rmarkdown.  
+
+## **Actividades**  
+1. Cuando se les pregunta qué medicamento tomarían si estuvieran en una isla abandonada y sólo pudieran elegir un analgésico, la mayoría de los médicos prefieren Bayer, en lugar de Tylenon, Bufferin o Advil. ¿Se llegó a esta conclusión a partir de una muestra o de una población?
+
+R: Muestra, debido a que una poblacion carece de datos especificos y se necesita de un muestreo a esta misma para llegar a un analisis certero. 
+
+
+2. "Alemania permanecerá siempre dividida", afirmó Walter Ulbricht después de la construcción del muro de Berlín en 1961. Sin embargo, hacia finales de 1969, El gobierno de Alemania del Este empezó a permitir el libre tránsito entre la parte oriental y la occidental, y veinte años después, el muro fue destruido por completo. Mencione algunas razones por las cuales Ulbricht hizo una predicción incorrecta. 
+
+R: Es no probabilistico debido a que su prediccion no es representativa, debido que Walter Ulbricht la hizo segun su juicio.
+
+
+3. Hace poco, una fábrica de aparatos electrónicos introdujo al mercado un nuevo amplificador, y en la garantía se indica que se han vendido 10000 de esos aplificadores. El presidente de la empresa, bastante preocupado después de recibir tres cartas de quejas con respecto a los nuevos amplificadores, informó al gerente de producción que se implemetarían costosas medidas de control para asegurar que los defectos no aparecieran de nuevo. Haga un comentario sobre la reacción del gerente, teneindo en cuenta las siguientes preguntas que se pueden hacer sobre los datos:  
+- ¿De dónde vienen los datos?
+
+R: Los datos son tomados de la poblacion de clientes, ya que se sabe que se han vendido 10000 amplificadores y que se han recibido 3 cartas de los mismos clientes evidenciando los problemas desde esta misma poblacion.
+
+- Los datos apoyan o contradicen otras evidencias que se tienen?
+R: Contradicien las evidencias, debido a la poca simetria de los datos ya que se han vendido 10000 amplificadores, pero solo se recibio carta de 3 clientes, lo cual no puede relacionar los fallos a toda la produccion de 10000 de los amplificadores. 
+
+- ¿Hace falta alguna evidencia cuya ausencia podría ocasionar que se llegue a una conclusión diferente?  
+- ¿Cuántas observaciones se tienen? ¿Representan a todos los grupos que se desea estudiar?
+- ¿ La conclusión es lógica? ¿ Se ha llegado a conclusiones que los datos no confirman?  
+
+4. Uno de los ejemplos más notorios de muestreo incorrecto fue realizado en 1936 por el _Literary Digest_ para predecir el ganador de la elección presidencial Landon - Roosevelt. El sondeo que predijo que Landon sería el ganador, se realizó enviando boletas a una muestra aleatoria seleccionadas de entre los nombres listados en los directorios telefónicos de ese año. En la elección real, Landon ganó en Maine y Vermont pero perdió en los otros 46 estados. Se cree que el pronóstico erróneo del _Literary Digest_ fue la principal razón de que finalmente fracasara. ¿Cuál fue la causa del pronóstico erróneo del _Digest_, es decir, ¿Por qué el procedimiento de muestro antes descrito podría producir una muestra de personas cuyas opiniones podrían estar prejuiciadas en favor de Landon?  
+
+5. Cada 10 años el censo de población de Estados Unidos proporciona información esencial acerca de ese país y sus habitantes. El propósito constitucional del censo es dividir las curules de la Cámara de Representantes entre los estados. Sin embargo, el censo tiene muchas otras aplicaciones importantes. Por ejemplo, las empresas privadas lo utilizan para ubicar sus plantas y planear su mercadeo.  
+El ceso de 1990 incluyó preguntas sobre edad, sexo, raza, estado civil, parentesco e ingresos; este censo se envió por correo a todos los hogares de Estados Unidos. Sin embargo, en algunas ciudades se agregó una serie de preguntas a una muestra de 5% de los hogares de la ciudad. Es decir, a cada hogar de una muestra aleatoria de los hogares de la ciudad se le envió una forma censal que incluía preguntas adicionales. Suponga que cierta ciudad contiene 100000 hogares, de los cuales se eligieron 5000 para enviarles la forma censal más larga. 
+a. Si usted trabaja para la oficina del censo y se le asigna la tarea de seleccionar una muestra  al azar de 5000 hogares de la ciudad en cuestión, describa cómo procedería.  
+b. Suponga que una de las preguntas adicionales de la forma larga del censo se refiere al consumo de energía. La ciudad utilizó esta información de muestra para proyectar el consumo medio de energía de los 100000 hogares. Explique por qué es importante que la muestra de los 5000 hogares sea aleatoria?  
+c. Ralice una simulación de los 100000 hogares, proponga y ejecute un procedimiento que permita extraer la muestra de 5000 hogares.
+  
+
+
+## Actividad en R  
+El primer paso para realizar la actividad es cargar las siguientes librerías:  
+```{r , message=FALSE}
+require(TeachingSampling)
+require(tidyverse)
+```
+
+
+```{r}
+data(Lucy)
+head(Lucy)
+```
+
+Para realizar esta actividad inicialmente se define el valor de una semilla ¿ Cual es el objetivo de establecer este valor?. 
+```{r}
+set.seed(1234)   # semilla
+```
+
+Luego de esto se selecciona una muestra aleatoria de tamaño 5.
+
+```{r}
+#muestra <- 
+
+```
+
+### Alternativa para extraer una muestra de tamaño **n**.  
+- Se utiliza la función $sample()$, la cual se aplica sobre el vector que se quiere maestrear.
+```{r}
+# muestra2 <- 
+# muestra2
+```
+
+- Si lo que se quiere es extraer una muestra de la tabla en general, se puede utilizar el siguiente código.  
+
+```{r}
+# muestra3 <- 
+# muestra3
+```
+
+5. hallar una muestra de tamaño **n** haciendo uso de muestreo sistemático.  
+Los pasos para obtener una muestra sistemática de tamaño **n** de una población finita son los siguientes:  
+
+1. Enumerar cada elemento de la población.  
+2. Determinar el valor de **k** de tal manera que $nk=N$ (ancho del intervalo).  
+3. Elegir un punto de partida aleatorio(menor o igual a k).
+4. Seleccionar cada K-ésimo elemento a partir del punto de partida.
+
+```{r}
+# Se utiliza la base de datos iris
+# poblac <- iris
+# head(poblac)
+```
+A continuación se definen los tamaños de población y muestra:
+
+```{r}
+### Tamaño de la población
+#N <- 
+```
+### Tamaño de muestra
+```{r}
+#n <- 
+```
+### Tamaño del intervalo
+```{r}
+# k <- 
+# k
+```
+La muestra se optiene al utilizar el siguiente código
+```{r}
+# set.seed(1234)                   # semilla 
+# val_inicio <-        # posición inicial
+# indices <-           # posiciones de la muestra
+
+```
+A continuación se selecciona la muestra
+```{r}
+# muestra_sis <- 
+# muestra_sis
+```
+<div/>
+
