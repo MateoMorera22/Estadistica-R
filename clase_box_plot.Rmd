@@ -1,0 +1,56 @@
+---
+title: "Diagrama de cajas"
+author: "Universidad EAN"
+date: "2023-03-03"
+output: html_document
+---
+
+<div style="text-align: justify">
+
+# Box Plot 
+
+Un diagrama de caja es una representación gráfica basada en los cuartiles, que ayuda a ilustrar el conjunto de datos.  
+
+### Actividad 1  
+
+La base de datos *precios* contiene información sobre los precios pagados por clientes sobre 80 vehículos vendidos.   
+1.  Usando las funciones de R, calcular los cuartiles y definir los límites que permiten identificar valores inusualmente altos o bajos.  
+
+2. Crear una una gráfica de cajas para los precios de los autos.
+```{r}
+library(ggplot2)
+library(readxl)
+precios <- read_excel("C:/Users/SALA/Downloads/precios.xlsx") # subir los datos
+
+```
+
+```{r}
+ggplot(precios, aes(x = 0, y = precios, color=precios)) + geom_boxplot(fill = "lightblue") 
+```
+
+### Análisis del gráfico 
+
+Se concluye que la mediana de los precios es aproximadamente de \$ 20000 dólares, cerca del 25% de los vehículos se vendió en menos de \$17000 y aproximadamente 25% de los vehículos se vendieron en más de \$23000. Casi 50% de los vehículos se vendió entre \$17000 y \$23000. El bigote superior es un poco más largo que el inferior lo que indicaría un sesgo a derecha. Además en el gráfico se identifica un dato atípico.  
+
+**NOTA**: si se quisiera construir el gráfico de forma horizontal se agrega la instrucción *coord_flip()*
+
+```{r}
+ggplot(datos, aes(x = 0, y = precios)) + geom_boxplot()+ coord_flip()+ggtitle("Distribución precios de venta autos")
+```
+
+
+### Actividad 2.  
+Construir un diagrama de cajas para la base de datos mtcars.
+```{r}
+datos_mtc <- mtcars
+```
+
+
+La siguiente gráfica muestra como se distribuye la variable en función de cyl.
+```{r}
+ggplot(datos_mtc, aes(x=factor(cyl),y=mpg))+geom_boxplot(aes(fill=factor(cyl))) + theme_bw() + stat_summary(fun="mean", geom ="point",shape = 8, size = 2, color="white" ) + ggtitle("comparación mpg en relacion con cyl")
+
+```
+
+
+<div/>
